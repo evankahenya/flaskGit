@@ -41,12 +41,13 @@ class MyObject(db.Model):
     name = db.Column(db.Text)
     # Puppy age in years
     age = db.Column(db.Integer)
-
+#comment
     # This sets what an instance in this table will have
     # Note the id will be auto-created for us later, so we don't add it here!
     def __init__(self, model, age):
         self.model = model
         self.age = age
+
 
     def __repr__(self):
         # This is the string representation of a puppy in the model
