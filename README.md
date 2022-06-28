@@ -1,2 +1,1 @@
-# Clock
-# Clock
+#setting up a flask database with SQLAlchemy 
