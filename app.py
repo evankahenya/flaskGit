@@ -23,12 +23,12 @@ db = SQLAlchemy(app)
 
 # Let's create our first model!
 # We inherit from db.Model class
-class MyObject(db.Model):
+class Puppy(db.Model):
     # If you don't provide this, the default table name will be the class name
-    __tablename__ = 'myobjects'
+    __tablename__ = 'puppies'
 
     # Now create the columns
-    # Lots of possible types. We'll introduce throughout the course
+    # Lots of possible types. We'll introduce through out the course
     # Full docs: http://docs.sqlalchemy.org/en/latest/core/types.html
 
     #########################################
@@ -41,14 +41,13 @@ class MyObject(db.Model):
     name = db.Column(db.Text)
     # Puppy age in years
     age = db.Column(db.Integer)
-#comment
+
     # This sets what an instance in this table will have
     # Note the id will be auto-created for us later, so we don't add it here!
-    def __init__(self, model, age):
-        self.model = model
+    def __init__(self, name, age):
+        self.name = name
         self.age = age
-
 
     def __repr__(self):
         # This is the string representation of a puppy in the model
-        return f"Puppy {self.model} is {self.age} years old."
+        return f"Puppy {self.name} is {self.age} years old."

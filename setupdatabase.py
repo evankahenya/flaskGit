@@ -1,17 +1,37 @@
-from app import db, MyObject
+# This is a very simple script that will show you how to setup our DB
+# Later on we'll want to use this type of code with templates
 
-# creates all the tables
+#############################################################################
+### NOTE!! If you run this script multiple times you will add ##############
+### multiple puppies to the database. That is okay, just the ##############
+### ids will be higher than 1, 2 on the subsequent runs ##################
+#########################################################################
+
+# Import database info
+from app import db, Puppy
+
+# Create the tables in the database
+# (Usually won't do it this way!)
 db.create_all()
 
-laptop = MyObject('HP Laptop', 3002)
-mouse = MyObject('Logitech', 4004)
-cable = MyObject('Type A USB', 4003)
-phone = MyObject('Android', 11.0)
-bag = MyObject('Canvas', 7001)
+# Create new entries in the database
+sam = Puppy('Sammy', 3)
+frank = Puppy('Frankie', 4)
 
-db.session.add_all([laptop, mouse, cable, phone, bag])
+# Check ids (haven't added sam and frank to database, so they should be None)
+print(sam.id)
+print(frank.id)
+
+# Ids will get created automatically once we add these entries to the DB
+db.session.add_all([sam, frank])
+
+# Alternative for individual additions:
+# db.session.add(sam)
+# db.session.add(frank)
+
+# Now save it to the database
 db.session.commit()
 
-print(laptop.id)
-print(mouse.id)
-print(bag.id)
+# Check the ids
+print(sam.id)
+print(frank.id)
