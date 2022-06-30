@@ -6,6 +6,7 @@ from flask_migrate import Migrate
 ######################################
 #### SET UP OUR SQLite DATABASE #####
 ####################################
+#test commit
 
 # This grabs our directory
 basedir = os.path.abspath(os.path.dirname(__file__))
